@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+    <link rel="stylesheet" href="../controllers/css/responsive.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <button id="mobile-menu-btn" class="mobile-menu" aria-label="Abrir menu">☰</button>
+    <div class="page-container">
+        <div id="sidebar"></div>
+        <main class="main-panel">
+            <div class="section">
+                <div class="section-title">
+                    <div>
+                        <h2>Bem-vinda, <span id="user-name"></span></h2>
+                        <p>Este é o seu painel de apoio. Escolha uma aba para acessar conteúdo e orientações.</p>
+                    </div>
+                    <div class="button-group">
+                        <button id="logout-btn" class="btn btn-tertiary">Sair</button>
+                        <button id="denuncias-btn" class="btn btn-secondary" onclick="window.location.href='denuncias.html'">📋 Denúncia Anônima</button>
+                    </div>
+                </div>
+                <div class="security-alert" style="background: #fef3cd; border: 1px solid #ffc107; border-radius: 16px; padding: 16px; margin-bottom: 24px; color: #856404; font-size: 0.9rem; line-height: 1.6;">
+                    <strong>⚠️ Aviso de Segurança:</strong>
+                    Seu histórico pode ser visto por outras pessoas que usam este computador. Se estiver em risco, use o botão "Entrar sem cadastro" para acessar a parte de denúncia anônima e emergência sem deixar rastros.
+                </div>
+                <div class="tabs" role="tablist">
+                    <button type="button" class="tab active" data-target="tab-relacionamentos">Relacionamentos Abusivos</button>
+                    <button type="button" class="tab" data-target="tab-psicologica">Violência Psicológica</button>
+                    <button type="button" class="tab" data-target="tab-fisica">Violência Física</button>
+                    <button type="button" class="tab" data-target="tab-assedio">Assédio</button>
+                    <button type="button" class="tab" data-target="tab-dependencia">Dependência Emocional</button>
+                    <button type="button" class="tab" data-target="tab-direitos">Direitos da Mulher</button>
+                    <button type="button" class="tab" data-target="tab-denuncias">Denúncias</button>
+                    <button type="button" class="tab" data-target="tab-emergencia">Emergência</button>
+                    <button type="button" class="tab" data-target="tab-configuracoes">Configurações</button>
+                    <button type="button" class="tab" data-target="tab-perfil">Perfil</button>
+                </div>
+                <div id="tab-relacionamentos" class="tab-panel active">
+                    <div class="cards-grid">
+                        <article class="card">
+                            <div class="icon">💜</div>
+                            <h3>Relacionamentos Abusivos</h3>
+                            <p>Entenda como reconhecer sinais de controle e manipulação em uma relação.</p>
+                            <a class="btn btn-secondary" href="relacionamentos-abusivos.html">Ler</a>
+                        </article>
+                    </div>
+                </div>
+                <div id="tab-psicologica" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">🧠</div><h3>Violência Psicológica</h3><p>Saiba identificar comportamentos íntimos que ferem a saúde emocional.</p><a class="btn btn-secondary" href="violencia-psicologica.html">Ler</a></article></div>
+                </div>
+                <div id="tab-fisica" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">🤕</div><h3>Violência Física</h3><p>Conheça seus direitos e medidas para proteger sua integridade física.</p><a class="btn btn-secondary" href="violencia-fisica.html">Ler</a></article></div>
+                </div>
+                <div id="tab-assedio" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">🚫</div><h3>Assédio</h3><p>Aprenda a identificar e denunciar diferentes formas de assédio.</p><a class="btn btn-secondary" href="assedio.html">Ler</a></article></div>
+                </div>
+                <div id="tab-dependencia" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">🤝</div><h3>Dependência Emocional</h3><p>Fortaleça sua autoestima e aprenda a identificar sinais de dependência.</p><a class="btn btn-secondary" href="dependencia-emocional.html">Ler</a></article></div>
+                </div>
+                <div id="tab-direitos" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">⚖️</div><h3>Direitos da Mulher</h3><p>Informações sobre proteção legal e apoio especializado.</p><a class="btn btn-secondary" href="direitos-da-mulher.html">Ler</a></article></div>
+                </div>
+                <div id="tab-denuncias" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">📩</div><h3>Denúncias</h3><p>Registre denúncias com orientação e cuidado.</p><a class="btn btn-secondary" href="denuncias.html">Denunciar</a></article></div>
+                </div>
+                <div id="tab-emergencia" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">🚨</div><h3>Emergência</h3><p>Ações rápidas para momento de risco, com contatos úteis.</p><a class="btn btn-danger" href="emergencia.html">Ir para emergência</a></article></div>
+                </div>
+                <div id="tab-configuracoes" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">⚙️</div><h3>Configurações</h3><p>Gerencie preferências de segurança e navegação.</p><a class="btn btn-secondary" href="configuracoes.html">Abrir</a></article></div>
+                </div>
+                <div id="tab-perfil" class="tab-panel">
+                    <div class="cards-grid"><article class="card"><div class="icon">👤</div><h3>Perfil</h3><p>Veja seus dados de conta e opções de logout.</p><a class="btn btn-secondary" href="perfil.html">Abrir</a></article></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        const ANONYMOUS_MODE_KEY = 'protege-cm-anonymous';
+        const isAnonymous = sessionStorage.getItem(ANONYMOUS_MODE_KEY) === 'true';
+        
+        // Requer autenticação apenas se não for modo anônimo
+        if (!isAnonymous) {
+            window.ProtegeCM.requireAuth('login.html');
+        }
+        
+        window.ProtegeCM.renderSidebar('home');
+        window.ProtegeCM.renderFooter();
+        const userName = window.ProtegeCM.getAuthenticatedUser() || 'Visitante';
+        document.getElementById('user-name').textContent = userName;
+        document.getElementById('logout-btn').addEventListener('click', event => { event.preventDefault(); window.ProtegeCM.logout(); });
+        window.ProtegeCM.activateTabs();
+    </script>
+</body>
+</html>

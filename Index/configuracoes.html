@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <div class="page-container">
+        <div id="sidebar"></div>
+        <main class="main-panel">
+            <div class="section">
+                <div class="section-title">
+                    <div>
+                        <h2>Configurações</h2>
+                        <p>Gerencie suas preferências e deixe o sistema mais seguro.</p>
+                    </div>
+                    <a href="Home.html" class="btn btn-tertiary">Voltar</a>
+                </div>
+                <div class="topic-full">
+                    <h3>Preferências de navegação</h3>
+                    <p>Você pode usar o botão de saída rápida a qualquer momento para sair do sistema. Lembre-se de que navegadores não permitem apagar o histórico nem fechar a aba automaticamente em todos os casos.</p>
+                    <h3>Segurança</h3>
+                    <ul>
+                        <li>Não salve senhas em dispositivos públicos.</li>
+                        <li>Use aba anônima se estiver sendo monitorada.</li>
+                        <li>Atualize o navegador para garantir compatibilidade com recursos de segurança.</li>
+                    </ul>
+                    <h3>Suporte</h3>
+                    <p>Se tiver dúvidas sobre o sistema, procure a coordenação ou a psicóloga da escola. O projeto está desenhado para ser um ambiente de apoio e informações confiáveis.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        window.ProtegeCM.requireAuth('login.html');
+        window.ProtegeCM.renderSidebar('configuracoes');
+        window.ProtegeCM.renderFooter();
+    </script>
+</body>
+</html>

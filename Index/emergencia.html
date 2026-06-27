@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergência - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <div class="page-container">
+        <div id="sidebar"></div>
+        <main class="main-panel">
+            <div class="section">
+                <div class="section-title">
+                    <div>
+                        <h2>Emergência</h2>
+                        <p>Ações rápidas para quando você estiver em risco.</p>
+                    </div>
+                    <a href="Home.html" class="btn btn-tertiary">Voltar</a>
+                </div>
+                <div class="topic-full">
+                    <h3>Emergência agora</h3>
+                    <p>Se você corre risco neste momento, utilize os contatos e ações abaixo imediatamente. Este site oferece orientação segura, mas não substitui o apoio urgente de serviços oficiais.</p>
+                    <div class="cards-grid">
+                        <article class="card">
+                            <h3>Chamar 190</h3>
+                            <p>Contato direto da polícia para situações graves de perigo.</p>
+                            <a class="btn btn-danger" href="tel:190">Ligar para 190</a>
+                        </article>
+                        <article class="card">
+                            <h3>Enviar SMS</h3>
+                            <p>Abra o aplicativo de mensagens para enviar um pedido de socorro.</p>
+                            <button class="btn btn-secondary" onclick="window.ProtegeCM.prepareSms()">Enviar SMS</button>
+                        </article>
+                    </div>
+                    <div class="info-box">
+                        <p>O envio automático de SMS não é garantido em navegadores web. Aqui usamos o link <code>sms:</code> para preparar a mensagem e permitir o envio pelo aplicativo móvel.</p>
+                    </div>
+                    <button class="btn btn-tertiary" onclick="window.ProtegeCM.requestLocation('location-output')">Obter localização</button>
+                    <p id="location-output" class="text-muted"></p>
+                    <h3>Telefones úteis</h3>
+                    <ul>
+                        <li>190 – Polícia Militar</li>
+                        <li>180 – Disque denúncia de violência contra a mulher</li>
+                        <li>Delegacia da Mulher – atendimento especializado</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        const ANONYMOUS_MODE_KEY = 'protege-cm-anonymous';
+        const isAnonymous = sessionStorage.getItem(ANONYMOUS_MODE_KEY) === 'true';
+        
+        // Requer autenticação apenas se não for modo anônimo
+        if (!isAnonymous) {
+            window.ProtegeCM.requireAuth('login.html');
+        }
+        
+        window.ProtegeCM.renderSidebar('emergencia');
+        window.ProtegeCM.renderFooter();
+    </script>
+</body>
+</html>

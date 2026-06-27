@@ -1,0 +1,392 @@
+/* Estilos principais do Protege CM. */
+:root {
+    --purple: #8E44AD;
+    --purple-light: #EBDCF8;
+    --white: #FFFFFF;
+    --gray: #F5F5F5;
+    --text: #2B2B2B;
+    --shadow: 0 24px 50px rgba(142, 68, 173, 0.12);
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, var(--purple-light) 0%, var(--white) 100%);
+    color: var(--text);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.quick-exit {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.98);
+    color: var(--purple);
+    border: none;
+    border-radius: 999px;
+    padding: 12px 18px;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.08);
+    font-weight: 700;
+}
+
+.card {
+    width: min(960px, 100%);
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid rgba(142, 68, 173, 0.08);
+}
+
+.soft-shadow {
+    box-shadow: var(--shadow);
+}
+
+.hero {
+    margin-top: 72px;
+    display: grid;
+    gap: 24px;
+}
+
+.hero-brand {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.logo-circle {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--purple);
+    color: var(--white);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: #4b4b4b;
+    margin: 0;
+}
+
+.warning-box {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: #fff4f7;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(142, 68, 173, 0.12);
+}
+
+.warning-icon {
+    font-size: 1.8rem;
+}
+
+.hero-actions {
+    display: grid;
+    gap: 16px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 14px;
+    border: none;
+    padding: 18px 22px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-primary {
+    background: var(--purple);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background: var(--purple-light);
+    color: var(--purple);
+}
+
+.btn-tertiary {
+    background: #FFFFFF;
+    color: var(--purple);
+    border: 1px solid rgba(142, 68, 173, 0.18);
+}
+
+.btn-danger {
+    background: #eb5757;
+    color: #fff;
+}
+
+.btn-white {
+    background: #FFFFFF;
+    color: var(--purple);
+    border: 1px solid rgba(142, 68, 173, 0.16);
+}
+
+.btn-small {
+    padding: 12px 16px;
+    border-radius: 12px;
+}
+
+.page-form, .page-info, .page-emergency, .page-dashboard {
+    width: 100%;
+}
+
+.form-card, .info-card, .psychologist-card, .emergency-card {
+    margin: 72px auto;
+}
+
+.form-card label,
+.info-card label,
+.psychologist-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-card input,
+.form-card textarea,
+.psychologist-card textarea,
+.psychologist-card input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(142, 68, 173, 0.16);
+    background: #fff;
+    margin-bottom: 20px;
+    resize: vertical;
+}
+
+textarea {
+    min-height: 140px;
+}
+
+.toast {
+    border-radius: 18px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+}
+
+.toast-success {
+    background: #e7f6ef;
+    color: #177a2b;
+}
+
+.toast-error {
+    background: #fdecea;
+    color: #b71c1c;
+}
+
+.small-text,
+.form-note {
+    color: #6b6b6b;
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+
+.label-muted {
+    color: #6b6b6b;
+    margin: 0 0 8px 0;
+}
+
+.topbar {
+    max-width: 960px;
+    margin: 24px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 24px;
+}
+
+.dashboard-grid {
+    max-width: 960px;
+    margin: 0 auto 72px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card-danger {
+    border-left: 6px solid #eb5757;
+}
+
+.card-primary {
+    border-left: 6px solid var(--purple);
+}
+
+.card-secondary {
+    border-left: 6px solid #24a19c;
+}
+
+.card-light {
+    border-left: 6px solid #6c5ce7;
+}
+
+.card-icon,
+.card-thumb {
+    font-size: 2.6rem;
+    margin-bottom: 18px;
+}
+
+.cards .card-icon {
+    font-size: 2rem;
+}
+
+.emergency-actions,
+.psychologist-actions,
+.help-list {
+    display: grid;
+    gap: 16px;
+}
+
+.info-card .tabs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.tab {
+    border: 1px solid rgba(142, 68, 173, 0.16);
+    border-radius: 16px;
+    background: #fff;
+    padding: 12px 14px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--purple);
+}
+
+.tab.active {
+    background: var(--purple);
+    color: #fff;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.help-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.help-card {
+    background: var(--purple-light);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.location-output {
+    margin-top: 16px;
+    color: #4f4f4f;
+}
+
+.psychologist-header {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.psychologist-photo {
+    width: 86px;
+    height: 86px;
+    border-radius: 24px;
+    background: var(--purple-light);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+}
+
+.psychologist-chat {
+    margin-top: 24px;
+}
+
+.warning-text {
+    background: #fff4f7;
+    color: #7b1f24;
+    padding: 18px;
+    border-radius: 16px;
+}
+
+.footer {
+    margin: 40px auto 0;
+    max-width: 960px;
+    text-align: center;
+    color: #6b6b6b;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 840px) {
+    body {
+        padding: 18px;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .info-card .tabs {
+        grid-template-columns: 1fr;
+    }
+    .help-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 540px) {
+    .card {
+        padding: 24px;
+    }
+    .quick-exit {
+        top: 12px;
+        right: 12px;
+        padding: 10px 14px;
+    }
+}

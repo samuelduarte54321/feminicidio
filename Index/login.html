@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(142, 68, 173, 0.12);
+            padding: 40px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            font-size: 2rem;
+            margin: 0 0 8px;
+            color: var(--purple);
+        }
+
+        .login-header p {
+            color: var(--muted);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .security-alert {
+            background: #fef3cd;
+            border: 1px solid #ffc107;
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-bottom: 24px;
+            color: #856404;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .security-alert strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .tabs-auth {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 14px 16px;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: var(--muted);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: var(--purple);
+            border-bottom-color: var(--purple);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(142, 68, 173, 0.18);
+            background: #fff;
+            color: var(--text);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        .form-helper {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .button-group {
+            display: grid;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-submit {
+            background: var(--purple);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(142, 68, 173, 0.3);
+        }
+
+        .btn-anonymous {
+            background: var(--purple-soft);
+            color: var(--purple);
+            border: 1px solid rgba(142, 68, 173, 0.3);
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-anonymous:hover {
+            background: rgba(142, 68, 173, 0.15);
+        }
+
+        .alert-message {
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        .alert-error {
+            background: #fdecea;
+            color: #9a1f1f;
+            border: 1px solid #f5c6cb;
+        }
+
+        .alert-success {
+            background: #e7f6ef;
+            color: #1b6f3b;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        #alert-container {
+            min-height: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>💜 Protege CM</h1>
+            <p>Apoio Seguro e Confidencial</p>
+        </div>
+
+        <div class="security-alert">
+            <strong>⚠️ Aviso de Segurança:</strong>
+            Seu histórico pode ser visto por outras pessoas que usam este computador. Se estiver em risco, use o botão "Entrar sem cadastro" para acessar a parte de denúncia anônima e emergência sem deixar rastros.
+        </div>
+
+        <div id="alert-container"></div>
+
+        <div class="tabs-auth">
+            <button class="tab-button active" onclick="switchTab('login')">Login</button>
+            <button class="tab-button" onclick="switchTab('cadastro')">Cadastro</button>
+        </div>
+
+        <!-- TAB LOGIN -->
+        <div id="login" class="tab-content active">
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">E-mail Escolar ou RA</label>
+                    <input type="text" id="login-email" placeholder="seu.email@escola.com ou RA" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" placeholder="Sua senha segura" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Entrar na Conta</button>
+                    <button type="button" class="btn-anonymous" onclick="accessAnonymous()">🔐 Entrar sem Cadastro</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- TAB CADASTRO -->
+        <div id="cadastro" class="tab-content">
+            <form id="cadastro-form">
+                <div class="form-group">
+                    <label for="cadastro-nome">Nome Social / Apelido</label>
+                    <input type="text" id="cadastro-nome" placeholder="Como você gostaria de ser chamada" required>
+                    <div class="form-helper">Você pode usar um nome social ou apelido. Não precisa ser seu nome real.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cadastro-email">E-mail Escolar ou RA</label>
+                    <input type="text" id="cadastro-email" placeholder="seu.email@escola.com ou RA" required>
+                    <div class="form-helper">Use seu e-mail escolar ou RA para identificação segura.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cadastro-password">Senha</label>
+                    <input type="password" id="cadastro-password" placeholder="Crie uma senha segura" required>
+                    <div class="form-helper">Mínimo 6 caracteres. Use uma combinação de letras e números.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cadastro-password-confirm">Confirmar Senha</label>
+                    <input type="password" id="cadastro-password-confirm" placeholder="Confirme sua senha" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Criar Conta</button>
+                    <button type="button" class="btn-anonymous" onclick="accessAnonymous()">🔐 Entrar sem Cadastro</button>
+                </div>
+            </form>
+            <div class="form-note">
+                Seus dados são protegidos e mantidos confidenciais.
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/shared.js"></script>
+    <script>
+        // Armazenamento de usuários (simulado em localStorage)
+        const USERS_STORAGE_KEY = 'protege-cm-users';
+        const AUTH_KEY = 'protegecm-auth';
+        const USER_KEY = 'protegecm-user';
+        const ANONYMOUS_MODE_KEY = 'protege-cm-anonymous';
+
+        function switchTab(tabName) {
+            // Remover active de todos os tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+            
+            // Adicionar active ao tab selecionado
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Limpar alertas
+            clearAlert('alert-container');
+        }
+
+        function showAlert(message, type = 'error') {
+            const container = document.getElementById('alert-container');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert-message alert-${type}`;
+            alertDiv.textContent = message;
+            container.innerHTML = '';
+            container.appendChild(alertDiv);
+        }
+
+        function clearAlert(containerId) {
+            const container = document.getElementById(containerId);
+            if (container) container.innerHTML = '';
+        }
+
+        function getUsers() {
+            const users = localStorage.getItem(USERS_STORAGE_KEY);
+            return users ? JSON.parse(users) : {};
+        }
+
+        function saveUser(email, nome, password) {
+            const users = getUsers();
+            users[email] = { nome, password };
+            localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+        }
+
+        function authenticateUser(email, password) {
+            const users = getUsers();
+            if (users[email] && users[email].password === password) {
+                sessionStorage.setItem(AUTH_KEY, 'true');
+                sessionStorage.setItem(USER_KEY, users[email].nome);
+                sessionStorage.removeItem(ANONYMOUS_MODE_KEY);
+                return true;
+            }
+            return false;
+        }
+
+        function accessAnonymous() {
+            sessionStorage.setItem(ANONYMOUS_MODE_KEY, 'true');
+            sessionStorage.removeItem(AUTH_KEY);
+            sessionStorage.removeItem(USER_KEY);
+            window.location.href = 'Home.html';
+        }
+
+        // Evento de CADASTRO
+        document.getElementById('cadastro-form').addEventListener('submit', event => {
+            event.preventDefault();
+            
+            const nome = document.getElementById('cadastro-nome').value.trim();
+            const email = document.getElementById('cadastro-email').value.trim();
+            const password = document.getElementById('cadastro-password').value;
+            const passwordConfirm = document.getElementById('cadastro-password-confirm').value;
+
+            // Validação
+            if (!nome || !email || !password || !passwordConfirm) {
+                showAlert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+
+            if (password !== passwordConfirm) {
+                showAlert('As senhas não correspondem.');
+                return;
+            }
+
+            // Verificar se e-mail já existe
+            const users = getUsers();
+            if (users[email]) {
+                showAlert('Este e-mail já possui cadastro. Faça login ou use outro e-mail.');
+                return;
+            }
+
+            // Salvar novo usuário
+            saveUser(email, nome, password);
+            
+            // Autenticar automaticamente
+            sessionStorage.setItem(AUTH_KEY, 'true');
+            sessionStorage.setItem(USER_KEY, nome);
+            
+            showAlert('Conta criada com sucesso! Redirecionando...', 'success');
+            setTimeout(() => {
+                window.location.href = 'Home.html';
+            }, 1500);
+        });
+
+        // Evento de LOGIN
+        document.getElementById('login-form').addEventListener('submit', event => {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            if (!email || !password) {
+                showAlert('Por favor, preencha e-mail e senha.');
+                return;
+            }
+
+            if (authenticateUser(email, password)) {
+                showAlert('Login realizado! Redirecionando...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'Home.html';
+                }, 1000);
+            } else {
+                showAlert('E-mail ou senha incorretos.');
+            }
+        });
+    </script>
+</body>
+</html>

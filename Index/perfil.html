@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <div class="page-container">
+        <div id="sidebar"></div>
+        <main class="main-panel">
+            <div class="section">
+                <div class="section-title">
+                    <div>
+                        <h2>Perfil</h2>
+                        <p>Veja seus dados e mantenha o ambiente seguro.</p>
+                    </div>
+                    <a href="Home.html" class="btn btn-tertiary">Voltar</a>
+                </div>
+                <div class="topic-full">
+                    <h3>Informações da conta</h3>
+                    <p>Seu perfil contém dados básicos de acesso. Em um projeto completo, esses dados ficariam protegidos em um servidor seguro.</p>
+                    <ul>
+                        <li><strong>Nome:</strong> <span id="profile-name"></span></li>
+                        <li><strong>RA ou e-mail:</strong> <span>Seu login seguro</span></li>
+                    </ul>
+                    <h3>Segurança do perfil</h3>
+                    <p>Mantenha seu dispositivo protegido e não compartilhe sua senha com outras pessoas. Se estiver em risco, use uma aba anônima para acessar o site.</p>
+                    <button id="logout-btn" class="btn btn-danger">Sair</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        window.ProtegeCM.requireAuth('login.html');
+        window.ProtegeCM.renderSidebar('perfil');
+        window.ProtegeCM.renderFooter();
+        document.getElementById('profile-name').textContent = window.ProtegeCM.getAuthenticatedUser();
+        document.getElementById('logout-btn').addEventListener('click', event => { event.preventDefault(); window.ProtegeCM.logout(); });
+    </script>
+</body>
+</html>

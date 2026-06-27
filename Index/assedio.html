@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assédio - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <div class="page-container">
+        <div id="sidebar"></div>
+        <main class="main-panel">
+            <div class="section">
+                <div class="section-title">
+                    <div>
+                        <h2>Assédio</h2>
+                        <p>Entenda os diferentes tipos de assédio e como denunciar com apoio seguro.</p>
+                    </div>
+                    <a href="Home.html" class="btn btn-tertiary">Voltar</a>
+                </div>
+                <div class="topic-full">
+                    <h3>O que é assédio</h3>
+                    <p>Assédio é qualquer comportamento de natureza sexual ou moral que seja indesejado, repetitivo e cause desconforto, humilhação ou intimidação. Não precisa de contato físico para ser assédio.</p>
+                    
+                    <h3>Tipos de assédio</h3>
+                    <h4>Assédio Moral</h4>
+                    <p>Práticas que humilham, ridicularizam ou desvalorizam uma pessoa, prejudicando sua dignidade e saúde mental.</p>
+                    <ul>
+                        <li>Apelidamentos e brincadeiras humilhantes.</li>
+                        <li>Isolamento social intencional.</li>
+                        <li>Críticas constantes e humilhação pública.</li>
+                        <li>Disseminação de boatos ou fake news.</li>
+                    </ul>
+                    
+                    <h4>Assédio Sexual</h4>
+                    <p>Qualquer comportamento de natureza sexual que seja indesejado. É crime.</p>
+                    <ul>
+                        <li>Comentários sobre o corpo ou aparência.</li>
+                        <li>Convites insistentes após recusa.</li>
+                        <li>Toques não consentidos.</li>
+                        <li>Mensagens ou fotos de teor sexual não desejado.</li>
+                        <li>Ameaças de represalia por recusar avanços.</li>
+                    </ul>
+                    
+                    <h3>Como identificar assédio</h3>
+                    <ul>
+                        <li>Sensação recorrente de desconforto na presença da pessoa.</li>
+                        <li>Comportamento repetido mesmo após pedir para parar.</li>
+                        <li>Sensação de pressionada ou constrangida.</li>
+                        <li>Evitar ir a certos locais para não encontrá-la.</li>
+                    </ul>
+                    
+                    <h3>Direitos da vítima</h3>
+                    <ul>
+                        <li><strong>Direito à dignidade:</strong> você merece respeito.</li>
+                        <li><strong>Direito à segurança:</strong> ambiente protegido.</li>
+                        <li><strong>Direito à saúde:</strong> atendimento psicológico.</li>
+                        <li><strong>Direito à proteção:</strong> não sofrer represalia.</li>
+                    </ul>
+                    
+                    <h3>Como denunciar assédio</h3>
+                    <ol>
+                        <li><strong>Documente:</strong> data, hora, local e descrição.</li>
+                        <li><strong>Procure testemunhas:</strong> pessoas que presenciaram.</li>
+                        <li><strong>Guarde provas:</strong> mensagens, emails, fotos.</li>
+                        <li><strong>Denuncie:</strong> registre boletim de ocorrência.</li>
+                    </ol>
+                    
+                    <h3>Onde denunciar</h3>
+                    <ul>
+                        <li><strong>Delegacia Especializada de Atendimento à Mulher (DEAM)</strong></li>
+                        <li><strong>Departamento de Recursos Humanos:</strong> se for no trabalho.</li>
+                        <li><strong>Direção da escola:</strong> se for na escola.</li>
+                        <li><strong>Disque 180:</strong> orientação e informações.</li>
+                    </ul>
+                    
+                    <h3>Telefones úteis</h3>
+                    <ul>
+                        <li><strong>180:</strong> Disque Denúncia Mulher (24h)</li>
+                        <li><strong>190:</strong> Polícia Militar</li>
+                        <li><strong>DEAM:</strong> Delegacia da Mulher (procure a mais próxima)</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        window.ProtegeCM.requireAuth('login.html');
+        window.ProtegeCM.renderSidebar('assedio');
+        window.ProtegeCM.renderFooter();
+    </script>
+</body>
+</html>

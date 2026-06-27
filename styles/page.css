@@ -1,0 +1,18 @@
+/* Estilos específicos de página e abas do Protege CM. */
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 6px; }
+.tab { flex: 0 0 auto; padding: 14px 18px; border-radius: 16px; border: 1px solid rgba(142, 68, 173, 0.12); background: #fff; color: var(--purple); font-weight: 700; cursor: pointer; text-align: center; white-space: nowrap; }
+.tab.active { background: var(--purple); color: #fff; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.help-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+
+.topic-full { display: grid; gap: 20px; }
+
+.topic-full h3 { margin-top: 0; }
+
+.topic-full ul { list-style: disc inside; }
+
+.back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--purple); }
+
+@media (max-width: 760px) { .tabs { grid-template-columns: 1fr; } .help-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <main class="main-panel">
+        <div class="section">
+            <div class="section-title">
+                <h2>Cadastro</h2>
+                <p>Crie sua conta para entrar no sistema de apoio.</p>
+            </div>
+            <div class="form-grid">
+                <div class="form-field"><label for="register-name">Nome social ou apelido</label><input id="register-name" type="text" placeholder="Digite seu nome social"></div>
+                <div class="form-field"><label for="register-login">RA ou e-mail escolar</label><input id="register-login" type="text" placeholder="Digite seu RA ou e-mail"></div>
+                <div class="form-field"><label for="register-password">Senha</label><input id="register-password" type="password" placeholder="Crie uma senha"></div>
+                <div class="form-field"><label for="register-confirm">Confirmar senha</label><input id="register-confirm" type="password" placeholder="Repita a senha"></div>
+                <button id="register-submit" class="btn btn-primary">Cadastrar</button>
+                <div id="register-feedback"></div>
+                <p class="text-muted">Seu cadastro será validado e você será encaminhado ao painel.</p>
+                <p class="small"><a href="login.html">Já tem conta? Entrar</a></p>
+                <p class="small"><a href="denuncias.html">Entrar sem cadastro para denúncias</a></p>
+            </div>
+        </div>
+    </main>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        document.getElementById('register-submit').addEventListener('click', event => {
+            event.preventDefault();
+            const nome = document.getElementById('register-name').value;
+            const login = document.getElementById('register-login').value;
+            const senha = document.getElementById('register-password').value;
+            const confirma = document.getElementById('register-confirm').value;
+            const error = window.ProtegeCM.validateRegisterForm(nome, login, senha, confirma);
+            if (error) {
+                window.ProtegeCM.showAlert('register-feedback', error, 'error');
+                return;
+            }
+            window.location.href = 'Home.html';
+        });
+    </script>
+</body>
+</html>

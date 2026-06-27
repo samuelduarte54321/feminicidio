@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denúncias - Protege CM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/page.css">
+</head>
+<body>
+    <button class="quick-exit" onclick="window.location.href='https://google.com'">SAÍDA RÁPIDA</button>
+    <div class="page-container">
+        <div id="sidebar"></div>
+        <main class="main-panel">
+            <div class="section">
+                <div class="section-title">
+                    <div>
+                        <h2>Denúncias</h2>
+                        <p>Envie sua denúncia anônima com orientação e privacidade.</p>
+                    </div>
+                    <a href="Home.html" class="btn btn-tertiary">Voltar</a>
+                </div>
+                <div class="topic-full">
+                    <h3>Registrar uma denúncia</h3>
+                    <p>Se você presenciou ou viveu uma situação de violência, utilize este espaço para relatar o fato. Seu relato é importante e pode ajudar a proteger outras pessoas.</p>
+                    <form id="denuncia-form" class="form-grid">
+                        <div class="form-field"><label for="denuncia-ocorreu">O que aconteceu</label><textarea id="denuncia-ocorreu" placeholder="Descreva o ocorrido" required></textarea></div>
+                        <div class="form-field"><label for="denuncia-onde">Onde aconteceu</label><input id="denuncia-onde" type="text" placeholder="Local da ocorrência" required></div>
+                        <div class="form-field"><label for="denuncia-quem">Quem está envolvido</label><input id="denuncia-quem" type="text" placeholder="Pessoa(s) envolvidas" required></div>
+                        <div class="form-field"><label for="denuncia-tempo">Há quanto tempo</label><input id="denuncia-tempo" type="text" placeholder="Há quanto tempo vem ocorrendo" required></div>
+                        <div class="form-field"><label for="denuncia-arquivo">Adicionar arquivo (opcional)</label><input id="denuncia-arquivo" type="file" accept="image/*,.pdf,audio/*"></div>
+                        <button type="submit" class="btn btn-primary">Enviar denúncia</button>
+                        <div id="denuncia-feedback"></div>
+                    </form>
+                    <p class="text-muted">Em um projeto com servidor, os dados seriam salvos diretamente em um banco de dados seguro.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="../scripts/shared.js"></script>
+    <script>
+        const ANONYMOUS_MODE_KEY = 'protege-cm-anonymous';
+        const isAnonymous = sessionStorage.getItem(ANONYMOUS_MODE_KEY) === 'true';
+        
+        // Requer autenticação apenas se não for modo anônimo
+        if (!isAnonymous) {
+            window.ProtegeCM.requireAuth('login.html');
+        }
+        
+        window.ProtegeCM.renderSidebar('denuncias');
+        window.ProtegeCM.renderFooter();
+
+        document.getElementById('denuncia-form').addEventListener('submit', event => {
+            event.preventDefault();
+            window.ProtegeCM.showAlert('denuncia-feedback', 'Recebemos sua denúncia. Apenas a equipe autorizada terá acesso.', 'success');
+            event.target.reset();
+        });
+    </script>
+</body>
+</html>
